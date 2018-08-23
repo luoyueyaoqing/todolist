@@ -28,10 +28,11 @@
         <div class="col-md-4">
             <div class="alert alert-info" role="alert" style="margin:30px 0px 0px 0px;">新建任务</div>
             <form class="input-group" method="post" action="/add/">
+                {% csrf_token %}
                 <input type="text" name="task" class="form-control" placeholder="请输入任务">
                 <span class="input-group-btn">
-        					<button class="btn btn-default" type="submit">添加</button>
-      					</span>
+                <button class="btn btn-default" type="submit">添加</button>
+                </span>
             </form>
         </div>
         <div class="col-md-4">
@@ -40,7 +41,7 @@
             {% for task in tasks %}
                 {% if not task.complete %}
                 <li class="list-group-item">
-                    <a href="/todo/{{ task.id }}"><span class="glyphicon glyphicon-check" aria-hidden="true"></span></a>
+                    <a href="/do/{{ task.id }}"><span class="glyphicon glyphicon-check" aria-hidden="true"></span></a>
                     {{ task.task }}
                 </li>
                 {% endif %}
@@ -54,7 +55,7 @@
             {% for task in tasks %}
                 {% if task.complete %}
                 <li class="list-group-item">
-                    <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+                    <a href="/undo/{{ task.id }}"><span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span></a>
                     {{ task.task }}
                 </li>
                 {% endif %}
