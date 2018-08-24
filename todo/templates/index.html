@@ -20,9 +20,11 @@
     </div>
 </nav>
 <div class="container">
-
-    <div class="alert alert-success" role="alert">操作成功</div>
-
+            {% if messages %}
+                {% for message in messages %}
+            <div class="alert {%if message.tags %} alert-{{ message.tags }}{% endif %}" role="alert">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
 
     <div class="row">
         <div class="col-md-4">
@@ -55,7 +57,7 @@
             {% for task in tasks %}
                 {% if task.complete %}
                 <li class="list-group-item">
-                    <a href="/undo/{{ task.id }}"><span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span></a>
+                    <a href="/del/{{ task.id }}"><span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span></a>
                     {{ task.task }}
                 </li>
                 {% endif %}
