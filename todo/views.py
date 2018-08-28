@@ -1,6 +1,44 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
 from django.contrib import messages
-from .models import Task
+from .models import Task, User
+from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.decorators import login_required
+
+
+def index_register(request):
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password1 = request.POST.get('password1')
+        password2 = request.POST.get('password2')
+        if not User.objects.filter(username=username).exists():
+            if password1 == password2:
+                User.objects.create_user(username=username, password=password1)
+                messages.success(request, '注册成功')
+                return redirect(to='login')
+            else:
+                messages.warning(request, '两次密码输入不一致')
+        else:
+            messages.warning(request, "账号已存在")
+    return render(request, 'register.html')
+
+
+def index_login(request):
+    next_url = request.GET.get('next')
+    if request.method == "POST":
+        form = AuthenticationForm(data=request.POST)
+        if form.is_valid():
+            login(request, form.get_user())
+            if next_url:
+                return redirect(next_url)
+            return redirect('index')
+        return HttpResponseRedirect(request.get_full_path())
+    return render(request, 'login.html', {'next_url': next_url})
+
+
+def index_logout(request):
+    logout(request)
+    return redirect(to=index)
 
 
 def index(request):
@@ -8,6 +46,7 @@ def index(request):
     return render(request, 'index.html', {'tasks': tasks})
 
 
+@login_required
 def add_todo(request):
     if request.method != "POST":
         messages.warning(request, "请求方法不对")
@@ -24,6 +63,7 @@ def add_todo(request):
     return redirect(to=index)
 
 
+@login_required
 def do_todo(request, id):
     task = get_object_or_404(Task, id=id)
     if task:
@@ -35,6 +75,7 @@ def do_todo(request, id):
     return redirect(to=index)
 
 
+@login_required
 def del_todo(request, id):
     task = get_object_or_404(Task, id=id)
     if task:

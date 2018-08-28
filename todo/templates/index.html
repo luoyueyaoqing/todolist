@@ -13,9 +13,19 @@
 <nav class="navbar navbar-default center-block">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">
-                <img alt="ToDoList" src="...">
-            </a>
+            {% if user.is_authenticated %}
+                <a class="navbar-brand" href="#">
+                <span>欢迎回来 {{ request.user }}</span>
+                </a>
+            {% else %}
+                <a class="navbar-brand" href="{% url 'register' %}">
+                <span>请注册</span>
+                </a>
+                <a class="navbar-brand" href="{% url 'login' %}">
+                <span>请登录</span>
+                </a>
+{% endif %}
+
         </div>
     </div>
 </nav>
@@ -68,5 +78,4 @@
     </div>
 </div>
 </body>
-
 </html>
