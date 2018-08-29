@@ -11,7 +11,7 @@
 <nav class="navbar navbar-default center-block">
     <div class="container-fluid">
         <div class="navbar-header">
-                <a class="navbar-brand" href="{% url 'index' %}"><i>返回我的主页</i></a>
+                <a class="navbar-brand" href="{% url 'index' %}"><i>返回我的首页</i></a>
         </div>
     </div>
 </nav>
@@ -19,8 +19,11 @@
     <div class="row">
         <div class="col-md-4">
             <div class="alert alert-info" role="alert" style="margin:30px 0px 0px 0px;"><i>{{ todo_user }}</i> 的主页</div>
-            <p>个性签名...</p>
-            <p><a href="#">修改资料</a></p>
+            <p>性别: <i>{{ todo_user.get_gender_display }}</i></p>
+            <p>个人签名: <i>{{ todo_user.info }}</i></p>
+            {% if todo_user == request.user %}
+            <p><a href="{% url 'user_update' %}"><i>修改个人资料</i></a></p>
+            {% endif %}
         </div>
         <div class="col-md-4">
             <div class="alert alert-warning" role="alert" style="margin:30px 0px 0px 0px;">待完成任务</div>

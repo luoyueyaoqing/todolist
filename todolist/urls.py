@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^login/', views.index_login, name='login'),
 
     url(r'^user_page/', views.user_page, name='user_page'),
+    url(r'^user_update/', views.user_update, name='user_update'),
     url(r'^$', views.index, name='index'),
     url(r'^add/', views.add_todo, name='add_todo'),
     url(r'^do/(?P<id>\d+)/', views.do_todo, name='do_todo'),

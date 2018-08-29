@@ -89,3 +89,16 @@ def del_todo(request, id):
     else:
         messages.warning(request, '操作失败')
     return redirect(to=index)
+
+
+@login_required
+def user_update(request):
+    user = request.user
+    if request.method == "POST":
+        user.nickname = request.POST.get('nickname')
+        gender = request.POST.get('gender')
+        user.gender = user.user_gender(gender)
+        user.info = request.POST.get('info')
+        user.save()
+        return redirect(to=index)
+    return render(request, 'user_update.html', {'user': user})
