@@ -58,7 +58,7 @@ def add_todo(request):
     else:
         task = request.POST.get('task')
         if task:
-            if Todo.objects.filter(task=task).exists():
+            if Todo.objects.filter(user=user, task=task).exists():
                 messages.warning(request, '任务已存在')
             else:
                 Todo.objects.create(user=user, task=task, complete=False)
