@@ -10,7 +10,7 @@ class User(AbstractUser):
         return self.nickname or self.username
 
 
-class Task(models.Model):
+class Todo(models.Model):
     user = models.ForeignKey(to=User, related_name="tasks")
     task = models.CharField(max_length=128)
     complete = models.BooleanField()
