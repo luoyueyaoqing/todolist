@@ -14,7 +14,7 @@
     <div class="container-fluid">
         <div class="navbar-header">
             {% if user.is_authenticated %}
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="{% url 'user_todo' %}?uid={{ request.user.id }}"">
                 <span>欢迎回来 {{ request.user }}</span>
                 </a>
             {% else %}
@@ -37,7 +37,7 @@
             {% endif %}
 
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="alert alert-info" role="alert" style="margin:30px 0px 0px 0px;">新建任务</div>
             <form class="input-group" method="post" action="/add/">
                 {% csrf_token %}
@@ -47,7 +47,7 @@
                 </span>
             </form>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="alert alert-warning" role="alert" style="margin:30px 0px 0px 0px;">待完成任务</div>
             <ul class="list-group">
             {% for task in tasks %}
@@ -60,7 +60,7 @@
             {% endfor %}
             </ul>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="alert alert-success" role="alert" style="margin:30px 0px 0px 0px;">已完成任务</div>
 
             <ul class="list-group">
@@ -73,7 +73,21 @@
                 {% endif %}
             {% endfor %}
             </ul>
+        </div>
 
+            <div class="col-md-3">
+                <div class="alert alert-success" role="alert" style="margin:30px 0px 0px 0px;">查看好友主页</div>
+
+                <ul class="list-group">
+                    {% for user in users %}
+                        {% if user.id != request.user.id %}
+                            <li class="list-group-item">
+                                <a href="{% url 'user_todo' %}?uid={{ user.id }}">{{ user }}的todo</a>
+
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
         </div>
     </div>
 </div>

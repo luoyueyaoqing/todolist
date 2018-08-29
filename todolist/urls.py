@@ -20,8 +20,11 @@ from todo import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.index),
+    url(r'^register/', views.index_register, name='register'),
+    url(r'^login/', views.index_login, name='login'),
 
+    url(r'^user_todo/', views.user_todo, name='user_todo'),
+    url(r'^$', views.index, name='index'),
     url(r'^add/', views.add_todo, name='add_todo'),
     url(r'^do/(?P<id>\d+)/', views.do_todo, name='do_todo'),
     url(r'^del/(?P<id>\d+)/', views.del_todo),

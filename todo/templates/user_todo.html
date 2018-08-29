@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ todo_user }}主页</title>
+</head>
+<body>
+<h2><i>{{ todo_user }}</i> 的主页</h2>
+<p>个性签名...</p>
+<p><a href="#">修改资料</a></p>
+
+{% for task in tasks %}
+
+        <p>内容: {{ task.task }}</p>
+{% endfor %}
+
+</body>
+</html>
