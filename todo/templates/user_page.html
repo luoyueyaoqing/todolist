@@ -22,7 +22,7 @@
             <p>性别: <i>{{ todo_user.get_gender_display }}</i></p>
             <p>个人签名: <i>{{ todo_user.info }}</i></p>
             {% if todo_user == request.user %}
-            <p><a href="{% url 'user_update' %}"><i>修改个人资料</i></a></p>
+            <p><a class="btn btn-primary btn-lg" href="{% url 'user_update' %}" role="button">修改资料</a></p>
             {% endif %}
         </div>
         <div class="col-md-4">
