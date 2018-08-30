@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^user_update/', views.user_update, name='user_update'),
     url(r'^$', views.index, name='index'),
     url(r'^add/', views.add_todo, name='add_todo'),
+    url(r'^detail_todo/(?P<todo_id>\d+)/', views.detail_todo, name='detail_todo'),
     url(r'^do/(?P<id>\d+)/', views.do_todo, name='do_todo'),
     url(r'^del/(?P<id>\d+)/', views.del_todo),
 ]

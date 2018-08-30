@@ -54,7 +54,7 @@
                 {% if not todo.complete %}
                 <li class="list-group-item">
                     <a href="/do/{{ todo.id }}"><span class="glyphicon glyphicon-check" aria-hidden="true"></span></a>
-                    {{ todo.task }}
+                    {{ todo.task|slice:'6' }}...<a href="/detail_todo/{{ todo.id }}">详细</a>
                 </li>
                 {% endif %}
             {% endfor %}
@@ -68,7 +68,7 @@
                 {% if todo.complete %}
                 <li class="list-group-item">
                     <a href="/del/{{ todo.id }}"><span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span></a>
-                    {{ todo.task }}
+                    {{ todo.task|slice:'6' }}...<a href="/detail_todo/{{ todo.id }}">详细</a>
                 </li>
                 {% endif %}
             {% endfor %}

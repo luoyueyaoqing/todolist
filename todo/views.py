@@ -4,6 +4,7 @@ from .models import Todo, User
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
+import time
 
 
 def index_register(request):
@@ -51,6 +52,19 @@ def user_page(request):
 
 
 @login_required
+def user_update(request):
+    user = request.user
+    if request.method == "POST":
+        user.nickname = request.POST.get('nickname')
+        gender = request.POST.get('gender')
+        user.gender = user.user_gender(gender)
+        user.info = request.POST.get('info')
+        user.save()
+        return redirect(to=index)
+    return render(request, 'user_update.html', {'user': user})
+
+
+@login_required
 def add_todo(request):
     user = get_object_or_404(User, id=request.user.id)
     if request.method != "POST":
@@ -66,6 +80,12 @@ def add_todo(request):
         else:
             messages.warning(request, '请输入任务')
     return redirect(to=index)
+
+
+@login_required
+def detail_todo(request, todo_id):
+    todo = get_object_or_404(Todo, id=todo_id)
+    return render(request, 'detail_todo.html', {'todo': todo})
 
 
 @login_required
@@ -91,14 +111,3 @@ def del_todo(request, id):
     return redirect(to=index)
 
 
-@login_required
-def user_update(request):
-    user = request.user
-    if request.method == "POST":
-        user.nickname = request.POST.get('nickname')
-        gender = request.POST.get('gender')
-        user.gender = user.user_gender(gender)
-        user.info = request.POST.get('info')
-        user.save()
-        return redirect(to=index)
-    return render(request, 'user_update.html', {'user': user})
