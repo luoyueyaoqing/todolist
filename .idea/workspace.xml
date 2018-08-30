@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35f6a313-64e9-441c-9ac0-4a23a376953f" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/todo/migrations/0001_initial.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todo/models.py" afterPath="$PROJECT_DIR$/todo/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todo/templates/detail_todo.html" afterPath="$PROJECT_DIR$/todo/templates/detail_todo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todo/templates/index.html" afterPath="$PROJECT_DIR$/todo/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todo/templates/user_page.html" afterPath="$PROJECT_DIR$/todo/templates/user_page.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todo/views.py" afterPath="$PROJECT_DIR$/todo/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todolist/settings.py" afterPath="$PROJECT_DIR$/todolist/settings.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -55,14 +49,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="detail_todo.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="detail_todo.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/todo/templates/detail_todo.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="28" column="49" lean-forward="false" selection-start-line="28" selection-start-column="49" selection-end-line="28" selection-end-column="49" />
+            <state relative-caret-position="95">
+              <caret line="27" column="25" lean-forward="true" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/todolist/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-559">
+              <caret line="29" column="20" lean-forward="true" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -92,7 +96,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/todolist/settings.py" />
         <option value="$PROJECT_DIR$/todo/templates/user_todo.html" />
         <option value="$PROJECT_DIR$/todo/admin.py" />
         <option value="$PROJECT_DIR$/todolist/urls.py" />
@@ -105,6 +108,7 @@
         <option value="$PROJECT_DIR$/todo/models.py" />
         <option value="$PROJECT_DIR$/todo/views.py" />
         <option value="$PROJECT_DIR$/todo/templates/detail_todo.html" />
+        <option value="$PROJECT_DIR$/todolist/settings.py" />
       </list>
     </option>
   </component>
@@ -536,14 +540,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/todolist/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="122" column="0" lean-forward="true" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/todolist/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="397">
@@ -622,11 +618,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/todo/templates/detail_todo.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="28" column="49" lean-forward="false" selection-start-line="28" selection-start-column="49" selection-end-line="28" selection-end-column="49" />
+        <state relative-caret-position="95">
+          <caret line="27" column="25" lean-forward="true" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/todolist/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-559">
+          <caret line="29" column="20" lean-forward="true" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
